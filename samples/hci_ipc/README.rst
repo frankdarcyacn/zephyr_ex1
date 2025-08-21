@@ -1,13 +1,14 @@
-.. zephyr:code-sample:: bluetooth_hci_ipc
-   :name: HCI IPC
-   :relevant-api: hci_raw bluetooth
+.. _samples-bluetooth_hci_ipc:
 
-   Expose a Bluetooth controller to another device or CPU using the IPC subsystem.
+bluetooth_hci_ipc
+#################
+
+Expose a Bluetooth controller to another device or CPU using the IPC subsystem.
 
 Overview
 ********
 
-This sample exposes :ref:`bluetooth_controller` support
+This sample exposes `Bluetooth Controller <https://docs.zephyrproject.org/latest/connectivity/bluetooth/api/controller.html>`__ support
 to another device or CPU using IPC subsystem.
 
 Requirements
@@ -18,23 +19,23 @@ Requirements
 Building and Running
 ********************
 
-This sample can be found under :zephyr_file:`samples/bluetooth/hci_ipc`
+This sample can be found under :file:`samples/bluetooth/hci_ipc`
 in the Zephyr tree.
 
 To use this application, you need a board with a Bluetooth controller
 and IPC support.
 You can then build this application and flash it onto your board in
-the usual way. See :ref:`boards` for board-specific building and
+the usual way. See `boards <https://docs.zephyrproject.org/latest/boards/index.html>`__ for board-specific building and
 programming information.
 
 To test this sample, you need a separate device/CPU that acts as Bluetooth
 HCI IPC peer.
 This sample is compatible with the HCI IPC driver provided by
-Zephyr's Bluetooth :ref:`bt_hci_drivers` core. See the
-:kconfig:option:`CONFIG_BT_HCI_IPC` configuration option for more information.
+Zephyr's Bluetooth `bt_hci_drivers <https://docs.zephyrproject.org/latest/connectivity/bluetooth/api/hci_drivers.html>`__ core. See the
+`CONFIG_BT_HCI_IPC <https://docs.zephyrproject.org/latest/kconfig.html#CONFIG_BT_HCI_IPC>`__ configuration option for more information.
 
 You might need to adjust the Kconfig configuration of this sample to make it
-compatible with the peer application. For example, :kconfig:option:`CONFIG_BT_MAX_CONN`
+compatible with the peer application. For example, `CONFIG_BT_MAX_CONN <https://docs.zephyrproject.org/latest/kconfig.html#CONFIG_BT_MAX_CONN>`__
 must be equal to the maximum number of connections supported by the peer application.
 
-Refer to :zephyr:code-sample-category:`bluetooth` for general information about Bluetooth samples.
+Refer to `bluetooth <https://docs.zephyrproject.org/latest/samples/bluetooth/bluetooth.html#bluetooth>`__ for general information about Bluetooth samples.
