@@ -16,3 +16,6 @@ manifest:
         name-allowlist:
           - cmsis_6
           - hal_nordic
+          - open-amp # needed for samples/hci_ipc built for nrf5340dk/nrf5340/cpunet
+          - libmetal # needed for samples/hci_ipc built for nrf5340dk/nrf5340/cpunet
+          - mbedtls # needed for samples/direction_finding_central built for nrf5340dk/nrf5340/cpuapp
