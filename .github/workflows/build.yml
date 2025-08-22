@@ -18,17 +18,39 @@ jobs:
 
         - name: Build bluetooth samples for nrf5340dk board
           run: |
-            west build -p -b nrf5340dk/nrf5340/cpuapp -d build_cpuapp samples/direction_finding_central/ -- -DEXTRA_CONF_FILE=overlay-aod.conf
-            west build -p -b nrf5340dk/nrf5340/cpunet -d build_cpunet samples/hci_ipc/
+            west build -p -b nrf5340dk/nrf5340/cpuapp -d build_nrf5340_cpuapp samples/direction_finding_central/ -- -DEXTRA_CONF_FILE=overlay-aod.conf
+            west build -p -b nrf5340dk/nrf5340/cpunet -d build_nrf5340_cpunet samples/hci_ipc/
+            west build -p -b nrf52833dk/nrf52833 -d build_nrf52833 samples/direction_finding_central/
 
-        - name: Generate RAM report for build_cpuapp
-          run: west build -d build_cpuapp -t ram_report
+        - name: Generate RAM report for build_nrf5340_cpuapp
+          run: west build -d build_nrf5340_cpuapp -t ram_report
 
-        - name: Generate ROM report for build_cpuapp
-          run: west build -d build_cpuapp -t rom_report
+        - name: Generate ROM report for build_nrf5340_cpuapp
+          run: west build -d build_nrf5340_cpuapp -t rom_report
 
-        - name: Generate RAM report for build_cpunet
-          run: west build -d build_cpunet -t ram_report
+        - name: Find build_nrf5340_cpuapp memory size configurations
+          run: |
+            sed -n /HEAP_MEM_POOL_SIZE/p build_nrf5340_cpuapp/zephyr/.config
+            sed -n /STACK_SIZE/p build_nrf5340_cpuapp/zephyr/.config
 
-        - name: Generate ROM report for build_cpunet
-          run: west build -d build_cpunet -t rom_report
+        - name: Generate RAM report for build_nrf5340_cpunet
+          run: west build -d build_nrf5340_cpunet -t ram_report
+
+        - name: Generate ROM report for build_nrf5340_cpunet
+          run: west build -d build_nrf5340_cpunet -t rom_report
+
+        - name: Find build_nrf5340_cpunet memory size configurations
+          run: |
+            sed -n /HEAP_MEM_POOL_SIZE/p build_nrf5340_cpunet/zephyr/.config
+            sed -n /STACK_SIZE/p build_nrf5340_cpunet/zephyr/.config
+
+        - name: Generate RAM report for build_nrf52833
+          run: west build -d build_nrf52833 -t ram_report
+
+        - name: Generate ROM report for build_nrf52833
+          run: west build -d build_nrf52833 -t rom_report
+
+        - name: Find build_nrf52833 memory size configurations
+          run: |
+            sed -n /HEAP_MEM_POOL_SIZE/p build_nrf52833/zephyr/.config
+            sed -n /STACK_SIZE/p build_nrf52833/zephyr/.config
