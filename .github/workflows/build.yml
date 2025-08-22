@@ -1,4 +1,4 @@
-name: Build samples on supported zephyr boards
+name: Build bluetooth samples for nrf5340dk board and generate memory usage reports
 
 on: [push, pull_request]
 
