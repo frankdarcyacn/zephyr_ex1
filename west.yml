@@ -19,3 +19,4 @@ manifest:
           - open-amp # needed for samples/hci_ipc built for nrf5340dk/nrf5340/cpunet
           - libmetal # needed for samples/hci_ipc built for nrf5340dk/nrf5340/cpunet
           - mbedtls # needed for samples/direction_finding_central built for nrf5340dk/nrf5340/cpuapp
+          - nanopb # needed for samples/nanopb_simple_ex

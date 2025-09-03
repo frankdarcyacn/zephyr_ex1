@@ -22,6 +22,9 @@ jobs:
             west build -p -b nrf5340dk/nrf5340/cpunet -d build_nrf5340_cpunet samples/hci_ipc/
             west build -p -b nrf52833dk/nrf52833 -d build_nrf52833 samples/direction_finding_central/
 
+        - name: Build nanopb_simple_ex for native_sim
+          run: west build -p -b native_sim -d build_nanopb_native_sim samples/nanopb_simple_ex/
+
         - name: Generate RAM report for build_nrf5340_cpuapp
           run: west build -d build_nrf5340_cpuapp -t ram_report
 
